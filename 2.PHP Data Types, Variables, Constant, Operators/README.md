@@ -84,6 +84,8 @@ Array (
 
 ```
 
+<br>
+
 # Operators
 
 ## Concatenation
@@ -230,3 +232,20 @@ A simple way:
 > - Single HTML code such as headers, footers, side bars etc. can be shared across many pages. This makes it easy to update the website by just updating a single file.
 
 > - PHP code such as database configuration settings, custom functions etc. can be shared across many pages ensuring the website/application uses the same settings.
+
+<br>
+
+# Arrays
+
+Types:
+
+- Numeric Arrays: Arrays with a numeric index.
+- Associative Array: Arrays with named keys.
+- Multi-dimensional arrays: Arrays containing one or more arrays.
+
+With arrays we can:
+
+- Do operations.
+- Functions (is_array, count, sort, ksort, asort, array_slice)
+
+## Numeric Arrays
