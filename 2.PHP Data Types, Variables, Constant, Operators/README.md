@@ -248,7 +248,7 @@ With arrays we can:
 - Do operations.
 - Functions (is_array, count, sort, ksort, asort, array_slice)
 
-> One way is to use `array()` func to create an array.
+> One way is to use `array()` this is not really a function, but a language construct. just like `list()`.
 
 ## Numeric Arrays
 
@@ -322,8 +322,8 @@ Array ( [Mary] => Female [John] => Male [Mirriam] => Female ) Mary is a Female
 
 ## Multi-dimensional arrays
 
-| Movie title |  Category | 
-| :---        |    :----:   |    
+| Movie title |  Category |
+| :---        |    :----:   |
 | Pink Panther |  Comedy
 | John English | Comedy
 | Die Hard | Action
@@ -385,13 +385,90 @@ another way is:
 ```
 
 Output:
+
 ```PHP
 Pink Panther
 ```
 
 <br>
 
-## Operations on Arrays:
+## Operations on Arrays
 
+you can + == === != !==
 
+for example:
 
+- Add:
+
+    ```PHP
+    <?php
+        $x = array('id' => 1);
+        $y = array('value' => 10);
+        $z = $x + $y;
+    ?>
+    ```
+
+    output:
+
+    ```PHP
+        Array( 
+            [id] => 1 
+            [value] => 10
+        )
+    ```
+
+- Not identical !==:
+
+    ```PHP
+    <?php
+        $x = array("id" => 1);
+        $y = array("id" => "1");
+        
+        if($x !== $y) {
+            echo "true";
+        }
+        else {
+            echo "false";
+        }
+    ?>
+    ```  
+
+    Output:
+
+    ```php
+        True or 1
+    ```
+
+<br>
+
+## Array Functions
+
+1. `is_array()`: check if var is array
+
+    ```PHP
+    <?php
+        $lecturers = array("Mr. Jones", "Mr. Banda", "Mrs. Smith");
+        echo is_array($lecturers);
+    ?>
+    ```
+
+    output:
+
+    ```php
+    1
+    ```
+
+2. `count()`: count the number of elements that an array contains.
+
+    ```PHP
+    <?php
+        $lecturers = array("Mr. Jones", "Mr. Banda", "Mrs. Smith");
+        echo count($lecturers);
+    ?>
+    ```
+
+    output:
+
+    ```PHP
+    3
+    ```
