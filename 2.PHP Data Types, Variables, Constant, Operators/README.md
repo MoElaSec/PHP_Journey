@@ -250,6 +250,8 @@ With arrays we can:
 
 > One way is to use `array()` this is not really a function, but a language construct. just like `list()`.
 
+> Note: Only the difference in using `[]` or `array()` is with the version of PHP you are using. In *PHP 5.4* you can also use the short array syntax, which replaces array() with [].
+
 ## Numeric Arrays
 
 2 ways to create the same array:
