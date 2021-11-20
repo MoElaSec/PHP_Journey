@@ -135,5 +135,98 @@ Pretty Cool!
     */
     ```
 
+# Working with files
+
+To include files into your PHP script we can use:
+
+- Throws Warning + cont. execution:
+  - include
+  - include_once
+- No Warning + Stops execution:
+  - require
+  - require_once
+
 ### include & include_once
 
+```php
+<?php
+    include_once 'file_name';
+?>
+```
+
+Real life example:
+
+- Suppose you are developing a website that contains the same navigation menu across all the pages.
+
+You can create a common header then include it in every page using the include statement Let’s see
+how this can be done. We will create 2 files names
+
+- header.php:
+
+```PHP
+<a href="/index.php">Home</a>
+<a href="/aboutus.php">About us</a>
+<a href="/services.php">Services</a>
+<a href="/contactus.php">Contact Us</a>
+```
+
+- index.php:
+
+```PHP
+<?php
+    include 'header.php';
+?>
+```
+
+## require & require_once
+
+Real life example:
+
+- Suppose we are developing a database powered application.
+
+We can create a configuration file that we can include in all pages that connect to the database using
+the require statement.
+
+- config.php:
+
+```PHP
+<?php
+    $config['host'] = 'localhost';
+    $config['db'] = 'my_database';
+    $config['uid'] = 'root';
+    $config['password'] = '';
+?>
+```
+
+in a sample code that requires the config file:
+
+```PHP
+<?php
+    require 'config.php'; //require the config file
+    //other code for connecting to the database
+?>
+```
+
+## Handling the included file
+
+> [StackOverFlow shows Multiple ways to do it.](https://stackoverflow.com/questions/8261756/how-to-catch-error-of-require-or-include-in-php)
+
+A simple way:
+
+```PHP
+<?php
+    ...
+    if(!include 'config.php'){
+        die("File not found handler. >_<");
+    }
+   ...
+?>
+```
+
+### Take away notes
+
+> - The __include__ statement should be in most cases except in situations where without the requested file to be include, the entire script cannot run.
+
+> - Single HTML code such as headers, footers, side bars etc. can be shared across many pages. This makes it easy to update the website by just updating a single file.
+
+> - PHP code such as database configuration settings, custom functions etc. can be shared across many pages ensuring the website/application uses the same settings.
