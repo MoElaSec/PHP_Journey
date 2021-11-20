@@ -322,7 +322,76 @@ Array ( [Mary] => Female [John] => Male [Mirriam] => Female ) Mary is a Female
 
 ## Multi-dimensional arrays
 
-| Syntax      |  Description | 
-| :---        |    ----:   |    
-| Header      | Title       | 
-| Paragraph   | Text        | 
+| Movie title |  Category | 
+| :---        |    :----:   |    
+| Pink Panther |  Comedy
+| John English | Comedy
+| Die Hard | Action
+| Expendables | Action
+| The Lord of the rings | Epic
+| Romeo and Juliet | Romance
+| See no evil hear no evil | Comedy
+
+we can represent it in Multi-Dimensions Array in PHP:
+
+```PHP
+<?php
+    $movies =array(
+        "comedy" => array("Pink Panther", "John English", "See no evil hear no evil"),
+        "action" => array("Die Hard", "Expendables"),
+        "epic" => array("The Lord of the rings"),
+        "Romance" => array("Romeo and Juliet")
+    );
+    print_r($movies);
+?>
+```
+
+Output:
+
+```PHP
+Array ( 
+    [comedy] => Array ( [0] => Pink Panther [1] => John English [2] => See no evil hear no evil ) 
+    [action] => Array ( [0] => Die Hard [1] => Expendables )
+    [epic] => Array ( [0] => The Lord of the rings ) 
+    [Romance] => Array ( [0] => Romeo and Juliet ) 
+)
+```
+
+another way is:
+
+```PHP
+<?php
+    $film=array(
+        "comedy" => array(
+            0 => "Pink Panther",
+            1 => "john English",
+            2 => "See no evil hear no evil"
+        ),
+        "action" => array (
+            0 => "Die Hard",
+            1 => "Expendables"
+        ),
+        "epic" => array (
+            0 => "The Lord of the rings"
+        ),
+        "Romance" => array
+        (
+            0 => "Romeo and Juliet"
+        )
+    );
+
+    echo $film["comedy"][0];
+?>
+```
+
+Output:
+```PHP
+Pink Panther
+```
+
+<br>
+
+## Operations on Arrays:
+
+
+
