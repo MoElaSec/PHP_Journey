@@ -248,4 +248,50 @@ With arrays we can:
 - Do operations.
 - Functions (is_array, count, sort, ksort, asort, array_slice)
 
+> One way is to use `array()` func to create an array.
+
 ## Numeric Arrays
+
+2 ways to create the same array:
+
+```PHP
+<?php
+    $movie[0]="Shaolin Monk";
+    $movie[1]="Drunken Master";
+    $movie[2]="American Ninja";
+    $movie[3]="Once upon a time in China";
+    $movie[4]="Replacement Killers";
+   
+    echo $movie[3]; //output: Once upon a time in China
+    
+    $movie[3] = " Eastern Condors";
+    echo $movie[3]; //output:  Eastern Condors
+
+    //final result well look like this: 
+    //Once upon a time in China Eastern Condors 
+?>
+```
+
+another way is:
+
+```PHP
+<?php
+    $movie = array(
+        0 => "Shaolin Monk",
+        1 => "Drunken Master",
+        2 => "American Ninja",
+        3 => "Once upon a time in China",
+        4 =>"Replacement Killers"
+    );
+    echo $movie[4]; //output: Replacement Killers
+?>
+```
+
+## Associative Array
+
+```php
+<?php
+    $variable_name['key_name'] = value;
+    $variable_name = array('keyname' => value);
+?>
+```
