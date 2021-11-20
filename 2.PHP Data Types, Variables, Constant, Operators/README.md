@@ -295,3 +295,27 @@ another way is:
     $variable_name = array('keyname' => value);
 ?>
 ```
+
+real world example, assign the gender of each person
+against their names:
+
+```php
+<?php
+    $persons = array(
+        "Mary" => "Female",
+        "John" => "Male", 
+        "Mirriam" => "Female"
+    );
+    
+    print_r($persons);
+    
+    echo "";
+    echo "Mary is a " . $persons["Mary"];
+?>
+```
+
+output:
+
+```PHP
+Array ( [Mary] => Female [John] => Male [Mirriam] => Female ) Mary is a Female
+```
