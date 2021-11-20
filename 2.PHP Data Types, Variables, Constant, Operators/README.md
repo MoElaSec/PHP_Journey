@@ -319,3 +319,10 @@ output:
 ```PHP
 Array ( [Mary] => Female [John] => Male [Mirriam] => Female ) Mary is a Female
 ```
+
+## Multi-dimensional arrays
+
+| Syntax      |  Description | 
+| :---        |    ----:   |    
+| Header      | Title       | 
+| Paragraph   | Text        | 
