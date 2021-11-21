@@ -168,5 +168,18 @@ do{
     
     ![image](https://user-images.githubusercontent.com/48570596/142760070-ee74e6cd-cc36-420b-a860-60272720a804.png)
 
-    
+
+    ```HTML
+    <table  align="left" border="1" cellpadding="3" cellspacing="0">
+        <?php 
+            for ($i = 1; $i < 6+1; $i++) {
+                echo "<tr>";
+                for ($j = 1; $j < 5+1; $j++) {
+                    echo "<td>$i * $j = " . $i*$j . "</td>";
+                }
+                echo "</tr>";
+            }
+        ?>
+    </table>
+    ```
 

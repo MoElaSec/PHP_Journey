@@ -5,14 +5,17 @@
 <body>
 	<h1>3'rd Assignment: Flow Control</h1>
 
-	<?php
-
-        for ($i = 1; $i < 6; $i++) {
-            // for ($j = 0; $j < 5; $j++) {
-                echo str_repeat("*", $i) . "<br>";
-            // }     
-        }
-	?>
+    <table  align="left" border="1" cellpadding="3" cellspacing="0">
+        <?php 
+            for ($i = 1; $i < 6+1; $i++) {
+                echo "<tr>";
+                for ($j = 1; $j < 5+1; $j++) {
+                    echo "<td>$i * $j = " . $i*$j . "</td>";
+                }
+                echo "</tr>";
+            }
+        ?>
+    </table>
 </body>
 
 </html>
