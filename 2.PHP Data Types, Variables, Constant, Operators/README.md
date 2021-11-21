@@ -474,3 +474,122 @@ for example:
     ```PHP
     3
     ```
+
+3. `reset()`: gets the first member of the array. (It also resets the internal iteration pointer).
+
+    ```PHP
+    $odd_numbers = [1,3,5,7,9];
+    $first_item = reset($odd_numbers); //or: = $odd_numbers[0];
+
+    echo $first_item; //    1   
+    ```
+
+4. `end()`: gets the last member of the array.
+
+    ```PHP
+    $odd_numbers = [1,3,5,7,9];
+    $last_item = end($odd_numbers);
+    echo $last_item;
+
+    //or you can use count()-1
+    $last_index = count($odd_numbers) - 1;
+    $last_item = $odd_numbers[$last_index];
+
+    ```
+
+5. ` array_slice()`: returns a new array that contains a certain part of a specific array from an offset.
+
+    ```PHP
+    // discard the first 3 elements of an array
+    $numbers = [1,2,3,4,5,6];
+    print_r(array_slice($numbers, 3)); //Array ( [0] => 4 [1] => 5 [2] => 6 )
+
+    // take only two items (from the 3 position take only 2)
+    $numbers = [1,2,3,4,5,6];
+    print_r(array_slice($numbers, 3, 2)); //Array ( [0] => 4 [1] => 5 )
+    ```
+
+6. `array_splice()`: same as  ` array_slice()` but well also alter the original array by **remove** the slice.
+
+    ```PHP
+    $numbers = [1,2,3,4,5,6];
+    
+    print_r(array_splice($numbers, 3, 2)); //Array ( [0] => 4 [1] => 5 )
+
+    print_r($numbers);  //Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 6 )
+    ```
+
+### Stack and queue functions
+
+> Arrays can be used as stacks and queues as well.
+
+1. `array_push()`:  push a member to the end of an array.
+
+    ```PHP
+    $numbers = [1,2,3];
+    array_push($numbers, 4); // now array is [1,2,3,4];
+    // print the new array
+    print_r($numbers);
+    ```
+
+2. `array_pop()`: pop a member from the end of an array.
+
+    ```PHP
+    $numbers = [1,2,3,4];
+    array_pop($numbers); // now array is [1,2,3];
+    // print the new array
+    print_r($numbers);
+    ```
+
+3. `array_unshift()`: push a member to the beginning of an array.
+
+    ```PHP
+    $numbers = [1,2,3];
+    array_unshift($numbers, 0); // now array is [0,1,2,3];
+    
+    // print the new array
+    print_r($numbers);
+    ```
+
+4. `array_shift()`: pop a member from the beginning of an array.
+
+    ```PHP
+    $numbers = [0,1,2,3];
+    array_shift($numbers); // now array is [1,2,3];
+    
+    // print the new array
+    print_r($numbers);
+    ```
+
+### Concatenating/Merge arrays
+
+- `array_merge ()`: Concatenate between two array.
+
+    ```PHP
+    $odd_numbers = [1,3,5,7,9];
+    $even_numbers = [2,4,6,8,10];
+    $all_numbers = array_merge($odd_numbers, $even_numbers);
+    print_r($all_numbers);
+    ```
+
+### Sorting Arrays
+
+> Sorting is done on the input array and does not return a new array.
+
+- `sort()`: Sort an array.
+
+    ```PHP
+    $numbers = [4,2,3,1,5];
+    sort($numbers);
+
+    print_r($numbers); // Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 )
+    ```
+
+- `rsort()`: Reverse sort an array.
+
+    ```PHP
+    $numbers = [4,2,3,1,5];
+    rsort($numbers);
+
+    print_r($numbers); //  Array ( [0] => 5 [1] => 4 [2] => 3 [3] => 2 [4] => 1 )
+    ```
