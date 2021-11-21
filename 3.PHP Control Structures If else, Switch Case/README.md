@@ -130,3 +130,41 @@ do{
 
 # Exercises
 
+1. Create a script to construct the following pattern, using nested for loop.
+
+    ```
+    *
+    * *
+    * * *
+    * * * *
+    * * * * *
+    ```
+
+    ```php
+    <?php
+        for ($i = 1; $i < 6; $i++) {
+            echo str_repeat("*", $i) . "<br>";
+        }
+    ?>
+
+    or
+
+    <?php
+        for($x=1;$x<=5;$x++) {
+            for ($y=1;$y<=$x;$y++) {
+                echo "*";
+                if($y< $x) {
+                    echo " ";
+                }
+            }
+            echo "\n";
+        }
+    ?>
+    ```
+
+<br>
+
+2. Write a PHP script that creates the following table using for loops. Add cellpadding="3px" and cellspacing="0px" to the table tag.
+    
+    
+
