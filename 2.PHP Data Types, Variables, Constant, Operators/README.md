@@ -497,7 +497,7 @@ for example:
 
     ```
 
-5. ` array_slice()`: returns a new array that contains a certain part of a specific array from an offset.
+5. `array_slice()`: returns a new array that contains a certain part of a specific array from an offset.
 
     ```PHP
     // discard the first 3 elements of an array
@@ -509,7 +509,7 @@ for example:
     print_r(array_slice($numbers, 3, 2)); //Array ( [0] => 4 [1] => 5 )
     ```
 
-6. `array_splice()`: same as  ` array_slice()` but well also alter the original array by **remove** the slice.
+6. `array_splice()`: same as  `array_slice()` but well also alter the original array by **remove** the slice.
 
     ```PHP
     $numbers = [1,2,3,4,5,6];
@@ -518,6 +518,8 @@ for example:
 
     print_r($numbers);  //Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 6 )
     ```
+
+<br>
 
 ### Stack and queue functions
 
@@ -574,7 +576,7 @@ for example:
 
 ### Sorting Arrays
 
-> Sorting is done on the input array and does not return a new array.
+> Sorting is done on the input array and does not return a new array. So `$sorted_names = sort($names);` is wrong this will store 1.
 
 - `sort()`: Sort an array.
 
@@ -593,3 +595,20 @@ for example:
 
     print_r($numbers); //  Array ( [0] => 5 [1] => 4 [2] => 3 [3] => 2 [4] => 1 )
     ```
+
+- Remember to use flags:
+    - SORT_STRING
+    - SORT_FLAG_CASE
+
+These for example to sort array as a string alphabetically and ignore the case as bigger cases well be first ascending:
+
+```PHP
+$male_names = ["Adam", "Snow", "PewDiePie"];
+$female_names = ["Merry", "Sara", "Mona"]; 
+
+$names = array_merge ($male_names ,$female_names);
+
+sort($names, SORT_STRING | SORT_FLAG_CASE);
+
+print_r($names); //Array ( [0] => Adam [1] => Merry [2] => Mona [3] => PewDiePie [4] => Sara [5] => Snow )
+```
