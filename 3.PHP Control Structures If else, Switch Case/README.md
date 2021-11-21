@@ -166,5 +166,7 @@ do{
 
 2. Write a PHP script that creates the following table using for loops. Add cellpadding="3px" and cellspacing="0px" to the table tag.
     
+    ![image](https://user-images.githubusercontent.com/48570596/142760070-ee74e6cd-cc36-420b-a860-60272720a804.png)
+
     
 
