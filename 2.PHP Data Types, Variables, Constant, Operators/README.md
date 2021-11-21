@@ -597,8 +597,8 @@ for example:
     ```
 
 - Remember to use flags:
-    - SORT_STRING
-    - SORT_FLAG_CASE
+  - SORT_STRING
+  - SORT_FLAG_CASE
 
 These for example to sort array as a string alphabetically and ignore the case as bigger cases well be first ascending:
 
