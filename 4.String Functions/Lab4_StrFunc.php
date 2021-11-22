@@ -41,28 +41,44 @@
 
             echo "<h2>2. The program to split the following string.</h2>";
             echo "<h3>Sample string : '082307'</h3>";
-            echo "<h3>Expected Output : 08:23:07</h3><br>";
+            echo "<h3>Expected Output : 08:23:07</h3>";
             $time = '082307';
-            // echo "<p>".. "</p>"; 
-            // print_r(preg_split('..', $time, -1, PREG_SPLIT_NO_EMPTY));
+            echo "<p>";
             print_r(substr(chunk_split($time, 2, ':'), 0, -1));
+            echo "</p>";
+
 
             echo "<h2>3. The program to check if a string contains a specific string?</h2>";
             echo "<h3>Sample string : 'The quick brown fox jumps over the lazy dog.'</h3>";
-            echo "<h3>Check whether the said string contains the string 'jumps'. Yes or No ? You can change the finding string.</h3><br>";
-            // echo "<p>".. "</p>"; 
+            echo "<h3>Check whether the said string contains the string 'jumps'. Yes or No ? You can change the finding string.</h3>";
+            $check_me = 'The quick brown fox jumps over the lazy dog.';
+            $pos = strpos($check_me, "jumps");
 
+            if ($pos === false) {
+                echo "<p>No</p>";
+            } else {
+                echo "<p>Yes</p>";
+            }
 
             echo "<h2>4. The program to extract the file name from the following string (web URL).</h2>";
             echo "<h3>Sample String : 'www.example.com/public_html/index.php'</h3>";
-            echo "<h3>Expected Output : 'index.php'</h3><br>";
-            // echo "<p>".. "</p>"; 
+            echo "<h3>Expected Output : 'index.php'</h3>";
+            $url = 'www.example.com/public_html/index.php';
+            $pos = strpos($url, "index.php");
+            
+            echo "<p>".substr($url, $pos, strlen($url)). "</p>"; 
 
 
             echo "<h2>5. The program to extract the user name from the following email ID.</h2>";
             echo "<h3>Sample String : 'rayy@example.com'</h3>";
-            echo "<h3>Expected Output : 'rayy'</h3><br>";
-            // echo "<p>".. "</p>"; 
+            echo "<h3>Expected Output : 'rayy'</h3>";
+            
+            $email = 'rayy@example.com';
+            $name_len = strlen("rayy");
+            
+            echo "<p>";
+            echo substr($email, 0, $name_len);
+            echo "</p><br>";
 
 
         ?>    
