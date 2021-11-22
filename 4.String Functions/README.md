@@ -86,6 +86,16 @@
     //output: This is a re...
     ```
 
+- `chunk_split()`: split a str to multiple chunks and put a delimitar.
+
+    ```php
+    $time =  '082307';
+    $f_time = chunk_split($time, 2, ':'); //output: 08:23:07:
+    print_r(substr($f_time, 0, -1)); //0,-1 from first to before-last charto remove : at the end.
+    
+    //output: 08:23:07
+    ```
+
 <br>
 
 - `strlen()`: count the number of character in a string. **Spaces** in between characters are also counted.
