@@ -9,9 +9,8 @@
         <h1>4'rd Assignment: Str Functions Control</h1>
 
         <?php
-            $word="word";
-            $pwd = "pas\$word";
-            echo $pwd;
+            echo str_word_count('A B C Hello!');
+
         ?>    
     </body>
 </html>
