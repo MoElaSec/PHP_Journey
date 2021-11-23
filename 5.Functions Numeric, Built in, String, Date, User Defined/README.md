@@ -82,8 +82,46 @@ add_five($num);
 echo $num; //7  notice $num changed
 ```
 
-## Built-in Functions:
+## Built-in Functions
 
 - [String Functions](../4.String%20Functions/README.md)
 
-- 
+- Numeric Functions:
+    - `is_number()`: true/false
+
+    - `number_format()`: formats a numeric value using digit separators and decimal points.
+
+        ```php
+        <?php
+            echo number_format(2509663); // 2,509,663
+        ?>
+        ```
+
+    - `rand()`: Generate a random number.
+
+    - `round()`: Round off a number with decimal points to the nearest whole number.
+
+    - `sqrt()`
+    - `sin()`, `cos()`, `tan()`
+    - `pi()`
+
+- Date & Time Functions:
+    - `date(format,[timestamp])`: returns the current time on the server.
+
+    ```php
+    //today: 22-Nov-2021
+    
+    echo date("y"); //21
+    echo date("Y"); //2021
+    echo date("m"); //11
+    echo date("M"); //Nov
+    echo date("d"); //2
+    echo date("D"); //Mon
+    ```
+
+    `[timestamp]`: optional if not given it's defualtde to value in `time()` which's current timestamp and set in `php.ini`.
+    > you can set it using `date_default_timezone_set()`.
+
+    - `()`:
+
+    - `()`
