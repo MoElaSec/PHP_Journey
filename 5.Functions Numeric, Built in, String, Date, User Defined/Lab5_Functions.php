@@ -19,10 +19,14 @@
     </style>
     <body>
         <p>
-        <?php
-            echo date("");     
-        ?>
+            <?php
+
+            echo date("r A h");
+
+            ?>
+
         </p>
+
     </body>
 
 </html>

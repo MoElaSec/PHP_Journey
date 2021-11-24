@@ -116,12 +116,69 @@ echo $num; //7  notice $num changed
     echo date("m"); //11
     echo date("M"); //Nov
     echo date("d"); //2
-    echo date("D"); //Mon
+    echo date("D"); //Mon  //use l to print Monday
+    echo date("r") //Mon, 22 Nov 2021 02:51:37 +0100
     ```
 
-    `[timestamp]`: optional if not given it's defualtde to value in `time()` which's current timestamp and set in `php.ini`.
+    `[timestamp]`: optional arg if not given it's defualted to value in `time()` which's current timestamp `echo time()`and set in `php.ini`.
+    > The timestamp is the number of seconds between the current time and 1st January, 1970  00:00:00 GMT. It is also known as the UNIX timestamp. 
+
     > you can set it using `date_default_timezone_set()`.
 
-    - `()`:
+    You can get a list of available time zones id then use one to set it:
 
-    - `()`
+    ```PHP
+    <?php
+        //call static method `listIdentifiers()` from `DateTimeZone` built-in class
+        $timezone_identifiers = DateTimeZone::listIdentifiers();
+
+        foreach($timezone_identifiers as $key => $list){
+            echo $list . "<br/>";
+        }
+
+        /*Output:
+        Africa/Abidjan
+        Africa/Accra
+        Africa/Addis_Ababa
+        Africa/Algiers
+        Africa/Asmara
+        Africa/Bamako
+        .. */
+
+        //Now you know how it looks like pick one and set it:
+
+        echo "The time in " . date_default_timezone_get() . " is " . date("H:i:s");//Output: The time in Europe/Berlin is 02:22:29
+
+        date_default_timezone_set("Asia/Calcutta");
+
+        echo "The time in " . date_default_timezone_get() . " is " . date("H:i:s");//Output: The time in Asia/Calcutta is 06:52:29
+
+    ?>
+    ```
+
+    <br>
+
+    - `mktime(hour, minute, second, month, day, year, is_dst)`:
+        returns the timestamp in Unix format + All args are optional. but at least give it 1 arg.
+
+        - Arguments may be left out in order from right to left; any arguments thus omitted will be set to the current value according to the local date and time.
+
+        - Remember timestamp is a long integer containing the number of seconds between the Unix Epoch (January 1 1970 00:00:00 GMT) and the time specified.
+
+            ```php
+            echo mktime(1,0,0,1,1,1970); //output is: 0
+            ```
+
+        - is_dst: returns Day Saving Time [`1` if there's] [`-1` if not] [`0` unknown].
+            > **Daylight Savings Time** or daylight time, and summer time, is the practice of advancing clocks during warmer months so that darkness falls at a later clock time
+
+            > `Note:` This parameter is removed in PHP 7.0. The new timezone handling features should be used instead
+
+        >`mktime()` is deprecated get current timestamp with `time()`.
+
+        ```php
+        // Prints: October 3, 1975 was on a Friday
+        echo "Oct 3, 1975 was on a ".date("l", mktime(0,0,0,10,3,1975));
+        ```
+
+
