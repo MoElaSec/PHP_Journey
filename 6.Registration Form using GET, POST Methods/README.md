@@ -1,6 +1,6 @@
 # [Registration Form: GET, POST](https://www.w3schools.com/php/php_forms.asp)
 
-## WHat's a Form
+## What's a Form
 
 An HTML tag that contains graphical user interface items such as input box, check boxes
 radio buttons etc.
@@ -82,5 +82,14 @@ An array of variables passed to the current script via the HTTP POST method.
     $_POST['variable_name'];
 ?>
 ```
+
+| **POST** |  **GET** |
+| :---        |    :----   |
+| Values not visible in the URL |  Values visible in the URL
+|Has no limitation of the length of the values since they are submitted via the body of HTTP  | Has limitation on the length of the values usually 255 characters. This is because the values are displayed in the URL. **Note** the upper limit of the characters is dependent on the browser.
+|Has lower performance compared to `$_GET` method due to time spent encapsulation the `$_POST` values in the HTTP body| Has high performance compared to `POST` method dues to the simple nature of appending the values in the URL.
+|Supports many different data types such as string, numeric, binary etc. | Supports only string data types because the values are displayed in the URL
+|Results cannot be bookmarked | Results can be book marked due to the visibility
+||
 
 ![image](https://user-images.githubusercontent.com/48570596/143430679-ba088824-7df6-4adf-a159-ab25aba76e8c.png)
