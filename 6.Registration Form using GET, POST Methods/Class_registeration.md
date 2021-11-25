@@ -104,7 +104,6 @@ Notes about code:
 
 - When a form has been submitted, the values are populated in the `$_POST` super global array.
 
-
 ```HTML
 <html>
     <head>
@@ -142,3 +141,19 @@ Here we:
 
 - If the `form_submitted` field hasn’t been filled in the `$_POST[]` array, the form is displayed.
 
+<br>
+
+## Let's build a Search-Engine
+
+
+
+
+<br>
+
+## Summary
+
+- Forms are used to get data from the users.
+- Forms are created using HTML tags.
+- Forms can be submitted to the server for processing using either POST or GET method.
+- Form values submitted via the POST method are encapsulated in the HTTP body.
+- Form values submitted via the GET method are appended and displayed in the URL.
