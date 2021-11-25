@@ -83,3 +83,4 @@ An array of variables passed to the current script via the HTTP POST method.
 ?>
 ```
 
+![image](https://user-images.githubusercontent.com/48570596/143430679-ba088824-7df6-4adf-a159-ab25aba76e8c.png)
