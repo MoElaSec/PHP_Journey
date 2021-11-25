@@ -181,6 +181,9 @@ Here we:
 </html>
 ```
 
+when you search for the term `GET` for example, the URL will look something like this:
+`/search_engine.php?search_term=GET&form_submitted=1`
+
 <br>
 
 ## Must Know function
@@ -204,13 +207,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
 
 - if method is POST then form is submitted another way to check (you can use GET as well).
 
-
 <br>
-
 
 ## Summary
 
 - Forms are used to get data from the users.
+
 - Forms are created using HTML tags.
 - Forms can be submitted to the server for processing using either POST or GET method.
 - Form values submitted via the POST method are encapsulated in the HTTP body.
