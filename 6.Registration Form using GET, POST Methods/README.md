@@ -96,7 +96,7 @@ An array of variables passed to the current script via the HTTP POST method.
 
 <br>
 
-## Processing Registration Form Data
+## Processing Registration Form Data  with checkbox ($_POST)
 
 Notes about code:
 
@@ -104,30 +104,36 @@ Notes about code:
 
 - When a form has been submitted, the values are populated in the `$_POST` super global array.
 
-```HTML
+```php
 <html>
     <head>
         <title>Registration Form</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <?php if (isset($_POST['form_submitted'])): ?> //this code is executed when the form is submitted
-        
-            <h2>Thank You <?php echo $_POST['firstname']; ?> </h2>
-            
-            <p>You have been registered as
-                <?php echo $_POST['firstname'] . ' ' . $_POST['lastname']; ?>
-            </p>
-            
-            <p>Go <a href="/registration_form.php">back</a> to the form</p>
-            
+        <?php if (isset($_POST['form_submitted'])): ?>
+            <?php if (!isset($_POST['agree'])): ?>
+                <p>You have not accepted our terms of service</p>
+            <?php else: ?>
+                <h2>Thank You <?php echo $_POST['firstname']; ?></h2>
+                <p>You have been registered as 
+                    <?php echo $_POST['firstname'] . ' ' . $_POST['lastname']; ?>
+                </p>
+                <p> Go <a href="/registration_form2.php">back</a> to the form</p>
+            <?php endif; ?>
         <?php else: ?>
             <h2>Registration Form</h2>
-            <form action="registration_form.php" method="POST">
-                First name:<input type="text" name="firstname"> <br>
-                Last name:<input type="text" name="lastname">
+            <form action="registration_form2.php" method="POST">
+                First name:
+                <input type="text" name="firstname"><br> 
 
-                <input type="hidden" name="form_submitted" value="1" />
+                Last name:
+                <input type="text" name="lastname"><br> 
+                
+                Agree to Terms of Service:
+                <input type="checkbox" name="agree"><br>
+
+                <input type="hidden" name="form_submitted" value="1"/>
                 <input type="submit" value="Submit">
             </form>
         <?php endif; ?>
@@ -137,18 +143,70 @@ Notes about code:
 
 Here we:
 
-- `<?php if (isset($_POST['form_submitted'])): ?>` checks if the `form_submitted` hidden field has been filled in the `$_POST[]` array and display a thank you and first name message.
+- `<?php if (isset($_POST['form_submitted'])): ?>` checks if the `form_submitted` hidden field has been filled in the `$_POST[]` array, and display a thank you and first name message.
 
-- If the `form_submitted` field hasn’t been filled in the `$_POST[]` array, the form is displayed.
+- `<?php if (!isset($_POST['agree'])): ?>`: Checks if Terms of servers checkbox is checked [read more about [isset($_POST['var_name'])](https://www.php.net/manual/en/function.isset.php)].
+
+<br>
+
+## Let's build a Search Engine ($_GET)
+
+```php
+<html>
+    <head>
+        <title>Simple Search Engine</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <?php if (isset($_GET['form_submitted'])): ?>
+                <h2>Search Results For <?php echo $_GET['search_term']; ?> </h2>
+            <?php if ($_GET['search_term'] == "GET"): ?>
+                <p>The GET method displays its values in the URL</p>
+            <?php else: ?>
+                <p>Sorry, no matches found for your search term</p>
+            <?php endif; ?>
+                <p>Go <a href="/search_engine.php">back</a> to the form</p>
+        <?php else: ?>
+            <h2>Simple Search Engine - Type in GET </h2>
+            
+            <form action="search_engine.php" method="GET">
+                Search Term:
+                <input type="text" name="search_term"><br>
+
+                <input type="hidden" name="form_submitted" value="1" />
+                <input type="submit" value="Submit">
+            </form>
+        <?php endif; ?>
+    </body>
+</html>
+```
 
 <br>
 
-## Let's build a Search-Engine
+## Must Know function
 
+[PHP_SELF + htmlspecialchars()](https://www.w3schools.com/php/php_form_validation.asp)
 
+```php
+htmlspecialchars($_SERVER["PHP_SELF"]);
+```
+
+- `$_SERVER["PHP_SELF"]`: Super-global variable that returns the filename of the currently executing script.
+    > So Basically, sends the submitted form data to the page itself, instead of jumping to a different page. This way, the user will get error messages on the same page as the form.
+
+- `htmlspecialchars()`: Converts special characters to HTML entities.This means that it will replace HTML characters like: `<` with `&lt;`. This prevents attackers from exploiting the code by injecting HTML or JavaScript code in forms.
+
+[REQUEST_METHOD](https://stackoverflow.com/questions/409351/post-vs-serverrequest-method-post)
+
+```php
+if ($_SERVER["REQUEST_METHOD"] === "POST")
+```
+
+- if method is POST then form is submitted another way to check (you can use GET as well).
 
 
 <br>
+
 
 ## Summary
 
