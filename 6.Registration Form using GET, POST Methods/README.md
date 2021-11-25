@@ -83,6 +83,8 @@ An array of variables passed to the current script via the HTTP POST method.
 ?>
 ```
 
+<br>
+
 | **POST** |  **GET** |
 | :---        |    :----   |
 | Values not visible in the URL |  Values visible in the URL
@@ -91,4 +93,52 @@ An array of variables passed to the current script via the HTTP POST method.
 |Supports many different data types such as string, numeric, binary etc. | Supports only string data types because the values are displayed in the URL
 |Results cannot be bookmarked | Results can be book marked due to the visibility
 |![image](https://user-images.githubusercontent.com/48570596/143432479-244e4723-4017-4f5a-b3a0-3c7dab88ddea.png) |  ![image](https://user-images.githubusercontent.com/48570596/143432532-44be65ef-e410-4538-9ecf-c983559739c6.png)
+
+<br>
+
+## Processing Registration Form Data
+
+Notes about code:
+
+- The registration form submits data to itself as specified in the `action="registration_form.php"` attribute of the form.
+
+- When a form has been submitted, the values are populated in the `$_POST` super global array.
+
+
+```HTML
+<html>
+    <head>
+        <title>Registration Form</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <?php if (isset($_POST['form_submitted'])): ?> //this code is executed when the form is submitted
+        
+            <h2>Thank You <?php echo $_POST['firstname']; ?> </h2>
+            
+            <p>You have been registered as
+                <?php echo $_POST['firstname'] . ' ' . $_POST['lastname']; ?>
+            </p>
+            
+            <p>Go <a href="/registration_form.php">back</a> to the form</p>
+            
+        <?php else: ?>
+            <h2>Registration Form</h2>
+            <form action="registration_form.php" method="POST">
+                First name:<input type="text" name="firstname"> <br>
+                Last name:<input type="text" name="lastname">
+
+                <input type="hidden" name="form_submitted" value="1" />
+                <input type="submit" value="Submit">
+            </form>
+        <?php endif; ?>
+    </body>
+</html>
+```
+
+Here we:
+
+- `<?php if (isset($_POST['form_submitted'])): ?>` checks if the `form_submitted` hidden field has been filled in the `$_POST[]` array and display a thank you and first name message.
+
+- If the `form_submitted` field hasn’t been filled in the `$_POST[]` array, the form is displayed.
 
