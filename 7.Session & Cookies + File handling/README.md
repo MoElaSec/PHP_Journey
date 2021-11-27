@@ -92,8 +92,85 @@ let's destroy the above created cookie:
 <br>
 
 ## Session?
+
 A global variable stored on the server. 
 
+- Each session is assigned a unique ID which is used to retrieve stored values.
+
+- Whenever a session is created, a **cookie** containing the unique session id is stored on the user’s computer and returned with every request to the server.
+    > If the client browser does not support cookies, the unique php session id is displayed in the URL.
+
+- Sessions have the capacity to store relatively large data compared to cookies.
+
+- The session values are **automatically deleted** when the browser is closed. If you want to store the values permanently, then you should store them in the database.
+
+- Just like the `$_COOKIE` array variable, session variables are stored in the `$_SESSION` array variable. Just like cookies, the session must be started before any HTML tags.
+
+<br>
+
+## When/Whey to use Sessions?
+
+- You want to store important information such as the user id **more securely** on the server where malicious users cannot temper with them.
+
+- You want to pass values from one page to another.
+
+- You want the alternative to cookies on browsers that do not support cookies.
+
+- You want to store global variables in an efficient and more secure way compared to passing them in the URL.
+
+- You are developing an application such as a shopping cart that has to temporary store information with a capacity larger than 4KB. 
+
+<br>
+
+## Creating a Session
+
+**Steps:**
+
+1. Call `session_start()`.
+2. Store your values in the `$_SESSION` array.
+
+Example: let's check how many times a page got loaded
+
+```PHP
+<?php
+    session_start(); //start the PHP_session function
+    if(isset($_SESSION['page_count'])) {
+        $_SESSION['page_count'] += 1;
+    }
+    else {
+        $_SESSION['page_count'] = 1;
+    }
+    echo 'You are visitor number ' . $_SESSION['page_count'];
+?>
+```
+
+<br>
+
+## Destroying Sessions
+
+- Destroy the whole PHP session:
+
+```PHP
+session_destroy(); //destroy entire session + including cookies associated with the it. 
+```
+
+- Destroy a single session item:
+
+```PHP
+unset($_SESSION['product']); //destroy product session item 
+```
+
+<br>
+<br>
+
+| Cookie | Session |
+|---|---|
+| Cookies are client-side files that contain user information | Sessions are server-side files which contain user information |
+| Cookie ends depending on the lifetime you set for it | A session ends when a user closes his browse |
+| You don’t need to start cookie as it is stored in your local machine | In PHP, before using $_SESSION, you have to write `session_start()` Likewise for other languages |
+| The official maximum cookie size is 4KB | Within-session you can store as much data as you like. The only limits you can reach is the maximum memory a script can consume at one time, which is 128MB by default |
+| A cookie is not dependent on Session | A session is dependent on Cookie |
+| There is no function named unsetcookie() | `Session_destroy()` is used to destroy all registered data or to unset some |
 
 
 <br>
@@ -111,6 +188,8 @@ A global variable stored on the server.
 - Each **session** is given a unique id that is used to track the variables for a user.
 
 - Both **cookies** and **sessions** must be started before any HTML tags have been sent to the browser.
+
+<br>
 
 <br>
 
