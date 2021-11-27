@@ -217,3 +217,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
 - Forms can be submitted to the server for processing using either POST or GET method.
 - Form values submitted via the POST method are encapsulated in the HTTP body.
 - Form values submitted via the GET method are appended and displayed in the URL.
+
+> To define a radio group, you assign the same name to all the radio buttons in the same group.
+
+
