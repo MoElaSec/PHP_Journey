@@ -33,7 +33,7 @@ Usage:
 
 <br>
 
-## Data collector (visitor IP+domain name -> log.csv):
+## Data collector (visitor IP+domain name -> log.csv)
 
 ```php
 $ip = GetHostByName($_SERVER['REMOTE_ADDR']);
