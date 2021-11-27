@@ -1,5 +1,30 @@
 # Cookies & Session
 
+## Cookie?
+
+Small file with max size of **4KB** that the web server stores on the client  computer. 
+
+
+
+
+<br>
+
+## Summary
+
+- **Cookies** are small files saved on the user’s computer.
+
+- **Cookies** can only be read from the issuing domain.
+
+- **Cookies** can have an expiry time, if it is not set, then the cookie expires when the browser is closed.
+
+- **Sessions** are like global variables stored on the server.
+
+- Each **session** is given a unique id that is used to track the variables for a user.
+
+- Both **cookies** and **sessions** must be started before any HTML tags have been sent to the browser.
+
+<br>
+
 # File Handling
 
 ## Supported filetypes
@@ -38,13 +63,16 @@ Usage:
 ```php
 $ip = GetHostByName($_SERVER['REMOTE_ADDR']);
 $name = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+
 $file = fopen("log.csv", "a");
+
 fwrite($file, time()); // you can modify the date - time format
 fwrite($file,";");
 fwrite($file,$ip);
 fwrite($file,";");
 fwrite($file,$name);
 fwrite($file,"\n");
+
 fclose($file);
 ```
 
