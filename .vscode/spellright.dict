@@ -1,3 +1,4 @@
 htmlspecialchars
 isset
 var
+superglobal
