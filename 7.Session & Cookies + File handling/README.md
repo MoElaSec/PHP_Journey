@@ -261,6 +261,22 @@ unset($_SESSION['product']); //destroy product session item
             string $enclosure = '"',
             string $escape = "\\"
         ): array
+
+        //example
+        $username = 'paul';
+        $password = 'snake';
+        $file = fopen("adat.csv", 'r') or die("Failed to create file");
+
+        while ( ($data = fgetcsv($file)) !== FALSE) {
+            if ($data[0] == $username && $data[1] == $password) {
+                $grantted = true;
+                break;
+            }
+        }
+
+        if ($grantted) {
+            echo 'access grantted';
+        }
     ?>
     ```
 
