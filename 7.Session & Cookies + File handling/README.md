@@ -93,7 +93,9 @@ let's destroy the above created cookie:
 
 ## Session?
 
-A global variable stored on the server. 
+A global variable stored on the server.
+
+> great [Session tutorial - TutorialsPoint](https://www.tutorialspoint.com/php/php_sessions.htm).
 
 - Each session is assigned a unique ID which is used to retrieve stored values.
 
@@ -118,7 +120,7 @@ A global variable stored on the server.
 
 - You want to store global variables in an efficient and more secure way compared to passing them in the URL.
 
-- You are developing an application such as a shopping cart that has to temporary store information with a capacity larger than 4KB. 
+- You are developing an application such as a shopping cart that has to temporary store information with a capacity larger than 4KB.
 
 <br>
 
@@ -172,7 +174,6 @@ unset($_SESSION['product']); //destroy product session item
 | A cookie is not dependent on Session | A session is dependent on Cookie |
 | There is no function named unsetcookie() | `Session_destroy()` is used to destroy all registered data or to unset some |
 
-
 <br>
 
 ## Summary
@@ -219,7 +220,7 @@ unset($_SESSION['product']); //destroy product session item
     ```php
         fopen($file_name,$mode,$use_include_path,$context);
     ```
-    
+
     <img  width="350" height="400" src="https://user-images.githubusercontent.com/48570596/143766103-c4d901e5-2505-4a68-995b-a47d8acf88b5.png">
 
 - `Fwrite()`:write to files.
@@ -287,7 +288,7 @@ unset($_SESSION['product']); //destroy product session item
 
 ## Open, Create & Close a File
 
-### Open:
+### Open
 
 ```PHP
 <?php
@@ -297,7 +298,7 @@ unset($_SESSION['product']); //destroy product session item
 ?>
 ```
 
-### Create & Close:
+### Create & Close
 
 ```PHP
 <?php
@@ -310,7 +311,6 @@ unset($_SESSION['product']); //destroy product session item
     echo "File 'my_settings.txt' written successfully"; 
 ?> 
 ```
-
 
 <br>
 
