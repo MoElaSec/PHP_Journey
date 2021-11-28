@@ -219,8 +219,8 @@ Usage:
     ```php
         fopen($file_name,$mode,$use_include_path,$context);
     ```
-
     
+<img  width="400" height="500" src="https://user-images.githubusercontent.com/48570596/143766103-c4d901e5-2505-4a68-995b-a47d8acf88b5.png">
 
 - `Fwrite()`:write to files.
 - `Fclose()`: Closes an open file pointer.
