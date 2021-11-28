@@ -203,7 +203,7 @@ unset($_SESSION['product']); //destroy product session item
 - `.csv`
 - `.gif` ,  `.jpg` etc
 
-Usage:
+**Usage**:
 
 - You want to store simple data such as server logs for later retrieval and analysis.
 - You want to store program settings i.e. `program.ini`
