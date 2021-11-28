@@ -1,10 +1,11 @@
 <?php
-$fh = fopen("my_settings.txt", 'r')
- or 
-die("Failed to create file");
-?>    
 
-<!-- <!DOCTYPE html>
+   session_start();
+   $_SESSION['background'] = "";
+
+?>
+
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -27,18 +28,38 @@ die("Failed to create file");
     <body>
         <h1>ColorBook</h1>
         <?php if (isset($_POST['form_submitted'])):?>
-            <h2>Logged in as <?php $_POST['user_name'] ?></h2>
             <?php 
+                $grantted = false;
+                $username = trim($_POST['username']);
+                $password = trim($_POST['password']);
 
+                $file = fopen("adat.csv", 'r') or die("Failed to create file");
+
+                while ( ($data = fgetcsv($file)) !== FALSE) {
+                    if ($data[0] == $username && $data[1] == $password) {
+                        $_SESSION['background'] = $data[2];
+                        $grantted = true;
+                        break;
+                    }
+                }
+
+                fclose($file);
             ?>
+            <?php if ($grantted):?>
+                <h2>Logged in as <?php echo $_POST['username']; ?></h2>
+                <button type="button" onclick="javascript:history.back()">Back</button>
+            <?php else:?>
+                <?php  echo "sorry wrong creditinals"; ?><br>
+                <button type="button" onclick="javascript:history.back()">Back</button>
+            <?php endif?>
         <?php else:?>
-            <h2>Login PLease:</h2>
+            <h2>Login Please:</h2>
             <form action="Login.php" method="post">
-                Username:
-                <input type="text" name="user_name" required><br>
+                Username: <br>
+                <input type="text" name="username" required><br>
 
-                Password:
-                <input type="password" name="password" required>
+                Password: <br>
+                <input type="password" name="password" required><br><br>
 
 
                 <input type="hidden" name="form_submitted" value="1">
@@ -46,4 +67,10 @@ die("Failed to create file");
             </form>
         <?php endif?>
     </body>
-</html> -->
+</html>
+
+<style>  
+    body {
+        background-color: <?php echo $_SESSION['background']; ?>;
+    }
+</style>
