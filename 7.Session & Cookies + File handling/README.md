@@ -250,6 +250,20 @@ unset($_SESSION['product']); //destroy product session item
 
 - `file_get_content()`: Reads entire file into a string.
 
+- `fgetcsv()`: Gets line from file pointer and parse for CSV fields.
+
+    ```PHP
+    <?php
+        fgetcsv(
+            resource $stream,
+            int $length = 0,
+            string $separator = ",",
+            string $enclosure = '"',
+            string $escape = "\\"
+        ): array
+    ?>
+    ```
+
 > **Note:** Operating systems such as Windows and MAC OS are **NOT** case sensitive while Linux or Unix operating systems are case sensitive. >So for maximum cross platform convert all name to lower_case for example.
 
 <br>
@@ -301,6 +315,8 @@ fwrite($file,"\n");
 
 fclose($file);
 ```
+
+<br>
 
 <br>
 
