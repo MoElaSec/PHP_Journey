@@ -220,16 +220,67 @@ Usage:
         fopen($file_name,$mode,$use_include_path,$context);
     ```
     
-<img  width="400" height="500" src="https://user-images.githubusercontent.com/48570596/143766103-c4d901e5-2505-4a68-995b-a47d8acf88b5.png">
+    <img  width="350" height="400" src="https://user-images.githubusercontent.com/48570596/143766103-c4d901e5-2505-4a68-995b-a47d8acf88b5.png">
 
 - `Fwrite()`:write to files.
+
 - `Fclose()`: Closes an open file pointer.
-- `Fgets()`: reading file lines.
+- `Fgets()`: reading file line by line.
 - `copy()`: copy an existing file.
+
+    ```PHP
+    <?php
+        copy('settings.txt', 'settings_backup.txt') or die("Could not copy file");
+        echo "File successfully copied to 'my_settings_backup.txt'";
+    ?>
+    ```
+
 - `unlink()`: delete files.
+
+    ```PHP
+    <?php
+        if (!unlink('my_settings_backup.txt')) {
+        echo "Could not delete file";
+        }
+        else {
+        echo "File 'my_settings_backup.txt' successfully deleted";
+    }
+    ?>
+    ```
+
 - `file_get_content()`: Reads entire file into a string.
 
 > **Note:** Operating systems such as Windows and MAC OS are **NOT** case sensitive while Linux or Unix operating systems are case sensitive. >So for maximum cross platform convert all name to lower_case for example.
+
+<br>
+<br>
+
+## Open, Create & Close a File
+
+### Open:
+
+```PHP
+<?php
+    $fh = fopen("my_settings.txt", 'w')
+    or
+    die("Failed to create file"); 
+?>
+```
+
+### Create & Close:
+
+```PHP
+<?php
+    $fh = fopen("my_settings.txt", 'w') or die("Failed to create file");
+    $text = <<<_END
+    localhost;root;pwd1234;my_database
+    _END;
+    fwrite($fh, $text) or die("Could not write to file");
+    fclose($fh);
+    echo "File 'my_settings.txt' written successfully"; 
+?> 
+```
+
 
 <br>
 
