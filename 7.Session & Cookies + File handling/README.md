@@ -212,9 +212,16 @@ Usage:
 
 ## File Functions
 
-- `File_exists()`: determine if a file exists or not.
+- `File_exists()`: determine if a file exists or not. (great to check before process or creation)
 
 - `Fopen()`: open a file >Returns a pointer to the opened file.
+
+    ```php
+        fopen($file_name,$mode,$use_include_path,$context);
+    ```
+
+    
+
 - `Fwrite()`:write to files.
 - `Fclose()`: Closes an open file pointer.
 - `Fgets()`: reading file lines.
