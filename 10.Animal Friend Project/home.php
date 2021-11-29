@@ -66,7 +66,7 @@
                 <?php if ($grantted):?>
                     <h2>Logged in as <?php echo $_POST['username']; ?></h2>
                     
-                    <!-- <h2><?php echo "Your Fav Animal is: ".$_SESSION['animal'];?></h2> -->
+                    <h2><?php echo "Your Fav Animal is: ".$_SESSION['animal'];?></h2>
                     <div>
                         <?php if ($_SESSION['animal'] == 'dog'):?>
                             <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*" alt="">
@@ -75,7 +75,13 @@
                         <?php endif?>
                     </div>
                         
-                    
+                    <?php
+                        $fh = fopen("log.csv", 'a+') or die("Failed to create file");
+                        $text = $_POST['username'].";".date("Y-M-D;h-i a")."\n";
+                        fwrite($fh, $text) or die("Could not write to file");
+                        fclose($fh);
+                    ?>
+
                     <button type="button" onclick="javascript:history.back()">Back</button>
                 <?php else:?>
                     <?php  echo "sorry wrong creditinals"; ?><br>
