@@ -20,6 +20,15 @@
                 background-attachment: fixed;
                 background-size: cover;
                 background-color: #464646;
+
+                align-items: center;
+            }
+            img {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width:150px;
             }
             h1 {
                 color: blue;
@@ -58,12 +67,14 @@
                     <h2>Logged in as <?php echo $_POST['username']; ?></h2>
                     
                     <!-- <h2><?php echo "Your Fav Animal is: ".$_SESSION['animal'];?></h2> -->
-
-                    <?php if ($_SESSION['animal'] == 'dog'):?>
-                        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*" alt="">
-                    <?php else:?>    
-                        <img src="https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d" alt="">
-                    <?php endif?>    
+                    <div>
+                        <?php if ($_SESSION['animal'] == 'dog'):?>
+                            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*" alt="">
+                        <?php else:?>    
+                            <img src="https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d" alt="">
+                        <?php endif?>
+                    </div>
+                        
                     
                     <button type="button" onclick="javascript:history.back()">Back</button>
                 <?php else:?>
